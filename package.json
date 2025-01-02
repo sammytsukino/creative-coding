@@ -13,6 +13,7 @@
   "dependencies": {
     "canvas-sketch": "^0.7.7",
     "canvas-sketch-util": "^1.10.0",
-    "sketches": "file:"
+    "sketches": "file:",
+    "tweakpane": "^4.0.5"
   }
 }
