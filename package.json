@@ -14,6 +14,6 @@
     "canvas-sketch": "^0.7.7",
     "canvas-sketch-util": "^1.10.0",
     "sketches": "file:",
-    "tweakpane": "^4.0.5"
+    "tweakpane": "^3.1.9"
   }
 }
