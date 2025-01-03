@@ -1,27 +1,35 @@
 const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
 const math = require("canvas-sketch-util/math");
+const Tweakpane = require("tweakpane");
 
 const settings = {
   dimensions: [1080, 1080],
   animate: true,
 };
 
-const animate = () => {
-  console.log("animate");
-  requestAnimationFrame(animate);
+const params = {
+  agentCount: 40,
+  lineWidthMin: 1,
+  lineWidthMax: 12,
+  maxDistance: 200,
+  agentRadiusMin: 4,
+  agentRadiusMax: 15,
 };
 
-//animate();
+let agents = [];
 
-const sketch = ({ context, width, height }) => {
-  const agents = [];
-  for (let i = 0; i < 40; i++) {
-    const x = random.range(0, width);
-    const y = random.range(0, height);
-
+const createAgents = () => {
+  agents = [];
+  for (let i = 0; i < params.agentCount; i++) {
+    const x = random.range(0, settings.dimensions[0]);
+    const y = random.range(0, settings.dimensions[1]);
     agents.push(new Agent(x, y));
   }
+};
+
+const sketch = ({ context, width, height }) => {
+  createAgents();
 
   return ({ context, width, height }) => {
     context.fillStyle = "white";
@@ -35,9 +43,9 @@ const sketch = ({ context, width, height }) => {
 
         const dist = agent.pos.getDistance(other.pos);
 
-        if (dist > 200) continue;
+        if (dist > params.maxDistance) continue;
 
-        context.lineWidth = math.mapRange(dist, 0, 200, 12, 1);
+        context.lineWidth = math.mapRange(dist, 0, params.maxDistance, params.lineWidthMax, params.lineWidthMin);
         context.beginPath();
         context.moveTo(agent.pos.x, agent.pos.y);
         context.lineTo(other.pos.x, other.pos.y);
@@ -53,6 +61,24 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
+const createPane = () => {
+  const pane = new Tweakpane.Pane();
+  let folder;
+
+  folder = pane.addFolder({ title: "Agents" });
+  folder.addInput(params, "agentCount", { min: 2, max: 100, step: 1 }).on('change', () => {
+    createAgents();
+  });
+  folder.addInput(params, "agentRadiusMin", { min: 1, max: 20, step: 1 });
+  folder.addInput(params, "agentRadiusMax", { min: 1, max: 20, step: 1 });
+
+  folder = pane.addFolder({ title: "Lines" });
+  folder.addInput(params, "lineWidthMin", { min: 1, max: 20, step: 1 });
+  folder.addInput(params, "lineWidthMax", { min: 1, max: 20, step: 1 });
+  folder.addInput(params, "maxDistance", { min: 50, max: 500, step: 1 }); // Control de la distancia máxima entre agentes
+};
+
+createPane();
 canvasSketch(sketch, settings);
 
 class Vector {
@@ -72,7 +98,7 @@ class Agent {
   constructor(x, y) {
     this.pos = new Vector(x, y);
     this.vel = new Vector(random.range(-1, 1), random.range(-1, 1));
-    this.radius = random.range(4, 15);
+    this.radius = random.range(params.agentRadiusMin, params.agentRadiusMax);
   }
 
   bounce(width, height) {
