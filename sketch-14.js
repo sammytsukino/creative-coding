@@ -3,6 +3,7 @@ const random = require('canvas-sketch-util/random');
 
 const settings = {
   dimensions: [1080, 1080],
+  canvas: document.getElementById('canvas1')
 };
 
 let manager, image;
@@ -28,7 +29,7 @@ const sketch = ({ context, width, height }) => {
     typeContext.fillRect(0, 0, cols, rows);
 
     typeContext.save();
-    typeContext.drawImage(image, 0, 0, cols, rows); // draw image
+    typeContext.drawImage(image, 0, 0, cols, rows);
     typeContext.restore();
 
     const typeData = typeContext.getImageData(0, 0, cols, rows).data;
@@ -51,7 +52,7 @@ const sketch = ({ context, width, height }) => {
       const b = typeData[i * 4 + 2];
       const a = typeData[i * 4 + 3];
 
-      const avg = (r + g + b) / 3; // Calcular el brillo promedio
+      const avg = (r + g + b) / 4;
 
       const glyph = getGlyph(avg);
 
