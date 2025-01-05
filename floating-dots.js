@@ -75,7 +75,7 @@ const createPane = () => {
   folder = pane.addFolder({ title: "Lines" });
   folder.addInput(params, "lineWidthMin", { min: 1, max: 20, step: 1 });
   folder.addInput(params, "lineWidthMax", { min: 1, max: 20, step: 1 });
-  folder.addInput(params, "maxDistance", { min: 50, max: 500, step: 1 }); // Control de la distancia máxima entre agentes
+  folder.addInput(params, "maxDistance", { min: 50, max: 500, step: 1 });
 };
 
 createPane();

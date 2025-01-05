@@ -2,6 +2,7 @@ const canvasSketch = require("canvas-sketch");
 
 const settings = {
   dimensions: [1080, 1080],
+  
 };
 
 let manager;
@@ -82,12 +83,12 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
-const onKeyUp = (e) => {
+const onKeyDown = (e) => {
   text = e.key.toUpperCase();
   manager.render();
 };
 
-document.addEventListener("keyup", onKeyUp);
+document.addEventListener("keydown", onKeyDown);
 
 const start = async () => {
   manager = await canvasSketch(sketch, settings);

@@ -1,6 +1,7 @@
 const canvasSketch = require('canvas-sketch');
 const random = require('canvas-sketch-util/random');
 
+
 const settings = {
   dimensions: [1080, 1080],
   canvas: document.getElementById('canvas1')
@@ -16,7 +17,7 @@ const typeCanvas = document.createElement('canvas');
 const typeContext = typeCanvas.getContext('2d');
 
 const sketch = ({ context, width, height }) => {
-  const cell = 10;
+  const cell = 5;
   const cols = Math.floor(width / cell);
   const rows = Math.floor(height / cell);
   const numCells = cols * rows;
@@ -44,15 +45,15 @@ const sketch = ({ context, width, height }) => {
       const col = i % cols;
       const row = Math.floor(i / cols);
 
-      const x = col * cell + random.range(-cell, cell) * 0.5;
-      const y = row * cell + random.range(-cell, cell) * 0.5;
+      const x = col * cell + random.range(-cell, cell) * 0.2;
+      const y = row * cell + random.range(-cell, cell) * 0.2;
 
       const r = typeData[i * 4 + 0];
       const g = typeData[i * 4 + 1];
       const b = typeData[i * 4 + 2];
       const a = typeData[i * 4 + 3];
 
-      const avg = (r + g + b) / 4;
+      const avg = (r + g + b) / 3;
 
       const glyph = getGlyph(avg);
 
@@ -74,11 +75,11 @@ const sketch = ({ context, width, height }) => {
 
 const getGlyph = (v) => {
   if (v < 50) return '';
-  if (v < 100) return '-';
-  if (v < 150) return '—';
-  if (v < 200) return '=';
+  if (v < 100) return '✩';
+  if (v < 150) return '⟡';
+  if (v < 200) return '♡';
 
-  const glyphs = '⋆✩★✿˙⟡♡'.split('');
+  const glyphs = '★✿'.split('');
 
   return random.pick(glyphs);
 };
