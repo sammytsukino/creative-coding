@@ -1,0 +1,21 @@
+{
+  "name": "sketches",
+  "version": "1.0.0",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "canvas-sketch": "^0.7.7",
+    "canvas-sketch-util": "^1.10.0",
+    "sketches": "file:",
+    "three": "^0.147.0",
+    "tweakpane": "^3.1.9",
+    "two.js": "^0.8.15"
+  }
+}

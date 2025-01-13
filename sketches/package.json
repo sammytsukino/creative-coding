@@ -1,0 +1,25 @@
+{
+  "name": "sketches",
+  "version": "1.0.0",
+  "main": "2025.01.11-10.19.50.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "canvas-sketch": "^0.7.7",
+    "glsl": "^0.0.1",
+    "glsl-dither": "^1.0.1",
+    "glsl-noise": "^0.0.0",
+    "glslCanvas": "^0.2.6",
+    "hex-rgb": "^5.0.0",
+    "perspective-camera": "^2.0.1",
+    "primitive-icosphere": "^1.0.2",
+    "regl": "^2.1.1",
+    "sketches": "file:"
+  }
+}
