@@ -15,7 +15,7 @@ const typeCanvas = document.createElement("canvas");
 const typeContext = typeCanvas.getContext("2d");
 
 const sketch = ({ context, width, height }) => {
-  const cell = 10;
+  const cell = 25;
   const cols = Math.floor(width / cell);
   const rows = Math.floor(height / cell);
   const numCells = cols * rows;
