@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@400;700&family=Epilogue:wght@400;700&display=swap');
+
+body {
+    font-family: 'Epilogue', Arial, sans-serif;
+    margin: 50px;
+}
+
+h1 {
+    font-family: 'Averia Sans Libre', Arial, sans-serif;
+    font-size: 50px;
+    font-style: italic;
+
+}
+
+h2 {
+    font-family: 'Averia Sans Libre', Arial, sans-serif;
+    font-size: 30px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+}
+
+.section p {
+    margin-bottom: 20px;
+}
+
+.canvas-container {
+    margin-left: 20px;
+}

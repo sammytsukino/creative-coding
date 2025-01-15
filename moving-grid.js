@@ -6,6 +6,8 @@ const Tweakpane = require("tweakpane");
 const settings = {
   dimensions: [1080, 1080],
   animate: true,
+  canvas: document.getElementById('canvas3'), 
+
 };
 
 const params = {

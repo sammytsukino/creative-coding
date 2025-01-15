@@ -2,7 +2,7 @@ const canvasSketch = require("canvas-sketch");
 
 const settings = {
   dimensions: [1080, 1080],
-  
+  canvas: document.getElementById('canvas1'), 
 };
 
 let manager;
