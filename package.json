@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "hello.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "vite"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "sketches": "file:",
     "three": "^0.147.0",
     "tweakpane": "^3.1.9",
-    "two.js": "^0.8.15"
+    "two.js": "^0.8.15",
+    "vite": "^6.0.7"
   }
 }

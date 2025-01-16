@@ -1,8 +1,7 @@
-const canvasSketch = require("canvas-sketch");
+import canvasSketch from "canvas-sketch";
 
 const settings = {
   dimensions: [1080, 1080],
-  canvas: document.getElementById('canvas1'), 
 };
 
 let manager;

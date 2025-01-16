@@ -1,4 +1,4 @@
-const canvasSketch = require("canvas-sketch");
+import canvasSketch from "canvas-sketch";
 const random = require("canvas-sketch-util/random");
 const math = require("canvas-sketch-util/math");
 const Tweakpane = require("tweakpane");
@@ -6,7 +6,6 @@ const Tweakpane = require("tweakpane");
 const settings = {
   dimensions: [1080, 1080],
   animate: true,
-  canvas: document.getElementById('canvas2'), 
 };
 
 const params = {
